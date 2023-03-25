@@ -14,3 +14,19 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     width: 200px;
 }
+.main_window{
+    height: 75vh; 
+    overflow-y: scroll;
+    padding: 10px;
+    
+}
+.imp{
+    color: red;
+    margin: 0;
+}
+.btmLine{
+    display: flex;
+    font-size:small;
+    align-items: center;
+    align-content: center;
+}

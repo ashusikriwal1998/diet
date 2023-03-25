@@ -24,9 +24,10 @@ app.post("/chat", async (req,res)=>{
         prompt: prompt,
         temperature: 0,
         max_tokens: 4000,
-    });
+        top_p: 1,
 
-    res.send(response.data.choices[0].text);
+    });
+    res.status(200).send(response.data.choices[0]);
 
 })
 
