@@ -7,7 +7,7 @@ export const dataAPI = createApi({
 
   // The base query to request data.
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080",
+    baseUrl: "http://localhost:8069",
   }),
 
   // The set of operations that we want to perform against the server.

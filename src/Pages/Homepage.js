@@ -1,7 +1,12 @@
 import React,{useState} from 'react'
 import {useResponseDataMutation} from "../Services"
+import { useNavigate } from 'react-router-dom';
+import Avatar from '@mui/material/Avatar';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 const Homepage = () => {
+  const navigate = useNavigate();
 const [loading,setLoading] = useState(true);
 const [response, setResponse] = useState([]);
 
@@ -26,17 +31,9 @@ const [responseData] = useResponseDataMutation()
 
 
   const handleSubmit =(e)=>{
-    // console.log(plan);
+
     e.preventDefault();
   
-    //   axios
-    //   .post("http://localhost:8080/chat", {plan})
-    //   .then((res)=>{ 
-    //     setResponse(res.data.text.split('\n'));
-    // })
-    //   .catch((err)=>{
-    //   console.error(err)
-    // });
 
     responseData({plan})
       .then((success) => {
@@ -53,12 +50,54 @@ const [responseData] = useResponseDataMutation()
   let handleChanges = (e, state) => {
     setInfo({...info, [[state]] : e.target.value})
   }
+  let logout = () =>{
+    localStorage.clear();
+     setAnchorEl(null);
+    navigate("/login");
+    
+  }
+
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  
 
   return (
-    <>
-    <div className='navbar'></div>
+    <div className='outer'>
+    <div className='navbar'>
+    <Avatar 
+    style={{cursor:"pointer"}}
+    id="basic-button"
+    aria-controls={open ? 'basic-menu' : undefined}
+    aria-haspopup="true"
+    aria-expanded={open ? 'true' : undefined}
+    onClick={handleClick}
+    >{localStorage.getItem("username").charAt(0).toUpperCase()}</Avatar>
+   
+    
+    </div>
+    <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>{localStorage.getItem("username")}</MenuItem>
+         <MenuItem onClick={logout}>Logout</MenuItem>
+      </Menu>
+
     <div className='main'>
-      <p>Make your Customised DIET Plan Using AI</p>
+      <p>Make your own Diet</p>
        
       <button type="button" className="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Get Started
@@ -189,11 +228,11 @@ const [responseData] = useResponseDataMutation()
 
 
     </div>
-    <div className='footbar'></div>
+    <div className='footer'>Copyright @2023. All rights Reserved.</div>
     
 
 
-    </>
+    </div>
   )
 }
 

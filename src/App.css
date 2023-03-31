@@ -1,14 +1,20 @@
 .main>p{
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 700;
+    color: white;
     font-size:xx-large; 
     text-align: center;
-    font-weight: 700;
+    font-size: 50px;
+    text-shadow: 2px 2px #0d8ace6d;
 }
 .main{
     display: flex;
     flex-direction: column;
     font-family: 'Comfortaa', cursive;
     align-items: center;
+    align-content: center;
+    height: 88%;
+    justify-content: center;
 }
 .btn-outline-primary{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -29,4 +35,66 @@
     font-size:small;
     align-items: center;
     align-content: center;
+}
+.outer{
+    height: 100vh;
+    background-image:url(../public/Assets/bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar{
+    height: 7%;
+    background-color: rgba(240, 248, 255, 0.652);
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+.footer{
+    height: 5%;
+    background-color: rgba(240, 248, 255, 0.652);
+    text-align: center;
+    color: rgb(101, 100, 100);
+}
+.avatar{
+    border-radius: 50%;
+    height: 200%;
+   
+}
+.login_window{
+    background-color:aliceblue;
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.login_box{
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 20px;
+    border-radius: 5px;
+    height: 50%;
+    min-width: 350px;
+    justify-content: space-evenly;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.btn_line{
+   display: flex;
+   flex-direction: row-reverse;
+}
+.btn_line>Button{
+   width: 50%;
+
+}
+.bottom_line{
+color: darkgrey;
+display: flex;
+justify-content: space-between;
+}
+.bottom_line>p{
+    cursor: pointer;
+    font-size: smaller;
 }
