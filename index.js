@@ -95,7 +95,7 @@ app.delete("/users/:id" , async(req,res)=>{
 })
 
 
-const port = 8069;
+const port = process.env.PORT || 8069;
 app.listen(port,()=>{
    
     console.log(`server is listening on port ${port}`);
