@@ -98,3 +98,32 @@ justify-content: space-between;
     cursor: pointer;
     font-size: smaller;
 }
+.bottom_line_1{
+    color: darkgrey;
+    display: flex;
+    justify-content:flex-end;
+    
+ }
+ .bottom_line_1>p{
+    cursor: pointer;
+ }
+ .create_box{
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 20px;
+    border-radius: 5px;
+    height: 90%;
+    min-width: 350px;
+    justify-content: space-evenly;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.error{
+    color: red;
+    font-size: xx-small;
+    margin: 0;
+    padding: 0;
+    
+}
+

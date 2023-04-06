@@ -16,7 +16,7 @@ const Routers = () => {
             </Route>
 
         
-        <Route  path="/create_user" element={
+        <Route  path="/create" element={
           // eslint-disable-next-line
         <Create_user/>} />
     </Routes>

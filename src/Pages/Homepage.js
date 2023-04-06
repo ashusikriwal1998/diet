@@ -4,11 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Cookies from 'universal-cookie';
 
 const Homepage = () => {
   const navigate = useNavigate();
 const [loading,setLoading] = useState(true);
 const [response, setResponse] = useState([]);
+
+const cookies = new Cookies();
+
 
 const [responseData] = useResponseDataMutation()
   
@@ -52,6 +56,7 @@ const [responseData] = useResponseDataMutation()
   }
   let logout = () =>{
     localStorage.clear();
+    cookies.remove("token");
      setAnchorEl(null);
     navigate("/login");
     
@@ -79,7 +84,7 @@ const [responseData] = useResponseDataMutation()
     aria-haspopup="true"
     aria-expanded={open ? 'true' : undefined}
     onClick={handleClick}
-    >{localStorage.getItem("username").charAt(0).toUpperCase()}</Avatar>
+    >{localStorage.getItem("data").charAt(0).toUpperCase()}</Avatar>
    
     
     </div>
@@ -92,7 +97,7 @@ const [responseData] = useResponseDataMutation()
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>{localStorage.getItem("username")}</MenuItem>
+        <MenuItem onClick={handleClose}>{localStorage.getItem("email")}</MenuItem>
          <MenuItem onClick={logout}>Logout</MenuItem>
       </Menu>
 

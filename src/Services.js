@@ -7,6 +7,7 @@ export const dataAPI = createApi({
 
   // The base query to request data.
   baseQuery: fetchBaseQuery({
+    // baseUrl: "https://diet-rt92.onrender.com",
     baseUrl: "http://localhost:8069",
   }),
 
@@ -31,9 +32,38 @@ export const dataAPI = createApi({
     }),
 
 
+    /********** @login **********/
+    login: builder.mutation({
+      query: (data) => {
+
+        return {  
+          url: `/login`,
+          responseHandler: (response) => response.json(),
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: data
+        }
+      },
+    }),
 
    
+  /********** @create **********/
+  create: builder.mutation({
+    query: (data) => {
 
+      return {  
+        url: `/users`,
+        responseHandler: (response) => response.json(),
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: data
+      }
+    },
+  }),
  
 
   })
@@ -43,5 +73,7 @@ export const dataAPI = createApi({
 
 
 export const { 
-  useResponseDataMutation
+  useResponseDataMutation,
+  useLoginMutation,
+  useCreateMutation
  } = dataAPI
