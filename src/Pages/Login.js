@@ -31,15 +31,19 @@ const Login = () => {
     
     loginAPI(user)
       .then((success) => {
+       if(success.error){
+        toast(success.error.data);
+       } else{
+        cookies.set("token", success.data.token, {
+          expires: new Date(Date.now + 3*24*60*60*1000),
+        });
+        localStorage.setItem("data",success.data.user.firstname);
+        localStorage.setItem("email",success.data.user.email);
+        navigate("/");
+        toast("Login successfully");
         
-          cookies.set("token", success.data.token, {
-            expires: new Date(Date.now + 3*24*60*60*1000),
-          });
-          localStorage.setItem("data",success.data.user.firstname);
-          localStorage.setItem("email",success.data.user.email);
-          navigate("/");
-          const notify = () => toast("Login successfully");
-          notify();
+       }
+          
       })
   }
 

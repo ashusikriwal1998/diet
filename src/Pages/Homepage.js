@@ -1,10 +1,11 @@
 import React,{useState} from 'react'
-import {useResponseDataMutation} from "../Services"
+import {useResponseDataMutation,usePlanMutation} from "../Services"
 import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Cookies from 'universal-cookie';
+import {toast } from 'react-toastify';
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -14,7 +15,8 @@ const [response, setResponse] = useState([]);
 const cookies = new Cookies();
 
 
-const [responseData] = useResponseDataMutation()
+const [responseData] = useResponseDataMutation();
+const [user_data] = usePlanMutation();
   
   let [info, setInfo] = useState({
     first_name: null,
@@ -38,6 +40,15 @@ const [responseData] = useResponseDataMutation()
 
     e.preventDefault();
   
+    user_data({
+      "firstname": info.first_name,
+    "lastname": info.last_name,
+    "plan" : plan
+
+    })
+    .then((success)=>{
+      toast("Data Uploading for "+ success.data.firstname);
+    })
 
     responseData({plan})
       .then((success) => {

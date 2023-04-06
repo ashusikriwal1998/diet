@@ -65,6 +65,21 @@ export const dataAPI = createApi({
     },
   }),
  
+  /********** @plan **********/
+  plan: builder.mutation({
+    query: (data) => {
+
+      return {  
+        url: `/plan`,
+        responseHandler: (response) => response.json(),
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: data
+      }
+    },
+  }),
 
   })
 
@@ -75,5 +90,6 @@ export const dataAPI = createApi({
 export const { 
   useResponseDataMutation,
   useLoginMutation,
-  useCreateMutation
+  useCreateMutation,
+  usePlanMutation
  } = dataAPI

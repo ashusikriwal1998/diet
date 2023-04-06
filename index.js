@@ -33,7 +33,15 @@ const userSchema = new Schema({
     token: String
   });
 
+  const dataSchema = new Schema({
+    firstname: String,
+    lastname: String,
+    plan : String
+  });
+
   const User = mongoose.model('User', userSchema);
+  
+  const Data = mongoose.model('data', dataSchema);
 
 //setup server
 const app = express();
@@ -101,6 +109,20 @@ app.post("/users" , async(req,res)=>{
      }
 
     }
+    
+})
+
+//plan
+app.post("/plan" , async(req,res)=>{
+
+    try {
+        const data =  await Data.create(req.body);
+         
+         res.status(201).send(data);
+         
+      } catch (error) {
+          res.status(400).send(error);
+      }
     
 })
 

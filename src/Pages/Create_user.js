@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import {useCreateMutation} from '../Services';
+import {toast } from 'react-toastify';
 
 
 
@@ -32,9 +33,11 @@ const Login = () => {
       if(!success.error){
       console.log(success);
       navigate("/login");
+      toast("Account Created Successfully");
       }
       else{
         console.log(success);
+        toast(success.error.data);
       }
   })
    
