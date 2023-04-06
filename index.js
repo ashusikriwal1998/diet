@@ -128,6 +128,8 @@ app.post("/login" , async(req,res)=>{
                     user
                 });
            
+         }else{
+            res.status(400).send("wrng password");
          }
 
     } catch (error) {

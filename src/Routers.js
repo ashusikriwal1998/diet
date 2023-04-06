@@ -4,10 +4,15 @@ import Create_user from "./Pages/Create_user"
 import Homepage from "./Pages/Homepage"
 import Login from "./Pages/Login"
 import PrivateRoutes from './PrivateRoutes'
+import { ToastContainer} from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Routers = () => {
   return (
     <BrowserRouter>
+     <ToastContainer 
+          position="top-right"
+        />
     <Routes>
         <Route  path="/login" element={<Login/>} />
 
