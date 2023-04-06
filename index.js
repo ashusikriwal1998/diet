@@ -129,7 +129,7 @@ app.post("/login" , async(req,res)=>{
                 });
            
          }else{
-            res.status(400).send("wrng password");
+            res.status(400).send("wrong password");
          }
 
     } catch (error) {
