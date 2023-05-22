@@ -9,7 +9,7 @@ const bcrypt = require('bcryptjs');
 
 
 const config = new Configuration({
-    apiKey: "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",
+    apiKey: "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",
 });
 
 const openai = new OpenAIApi(config);

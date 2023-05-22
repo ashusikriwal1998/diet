@@ -95,7 +95,7 @@ const [user_data] = usePlanMutation();
     aria-haspopup="true"
     aria-expanded={open ? 'true' : undefined}
     onClick={handleClick}
-    >{localStorage.getItem("data").charAt(0).toUpperCase()}</Avatar>
+    >{localStorage.getItem("data") && localStorage.getItem("data").charAt(0).toUpperCase()}</Avatar>
    
     
     </div>

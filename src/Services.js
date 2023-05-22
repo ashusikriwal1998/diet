@@ -7,8 +7,8 @@ export const dataAPI = createApi({
 
   // The base query to request data.
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://diet-rt92.onrender.com",
-    // baseUrl: "http://localhost:8069",
+    // baseUrl: "https://diet-rt92.onrender.com",
+    baseUrl: "http://localhost:8069",
   }),
 
   // The set of operations that we want to perform against the server.
